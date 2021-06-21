@@ -1,0 +1,30 @@
+const koa = require("koa")
+<% if (middleware.router) { %>
+const Router = require("koa-router")
+<% } %>
+<% if (middleware.static) { %>
+const serve = require("koa-static")
+<% } %>
+<% if (middleware.body) { %>
+const koaBody = require("koa-body")
+<% } %>
+const app = new koa()
+<% if (middleware.static) { %>
+app.use(serve(__dirname+"/static"))
+<% } %>
+<% if (middleware.body) { %>
+app.use(koaBody({
+  multipart:true
+}))
+<% } %>
+
+<% if (middleware.router) { %>
+const router = new Router()
+router.get('/',(ctx)=>{
+  ctx.body =  JSON.stringify({name:'zs'})
+})
+app.use(router.routes())
+<% } %>
+app.listen(<%= port %>,()=>{
+  console.log('open server localhost:<%= port %>')
+})

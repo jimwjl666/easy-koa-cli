@@ -1,0 +1,26 @@
+{
+  "name": "easy-koa-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./bin/index.js",
+  "type": "module",
+  "bin": {
+    "easy-koa-cli": "./bin/index.js"
+  },
+  "files": [
+    "bin",
+    "package.json"
+  ],
+  "scripts": {
+    "test": "node ./bin/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "execa": "^5.1.1",
+    "inquirer": "^8.1.1",
+    "prettier": "^2.3.1"
+  }
+}
